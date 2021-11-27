@@ -30,17 +30,21 @@ namespace PirateBoss.Boss
                 yield return new WaitForSeconds(0.5f);
                 List<PlayableCard> best = new List<PlayableCard>();
                 int bestAtk = 1;
+                int bestHealth = 0;
+                int bestPowerLevel = 0;
                 Singleton<BoardManager>.Instance.PlayerSlotsCopy.ForEach(pSlot =>
                 {
                     if (pSlot.Card != null)
                     {
-                        if (pSlot.Card.Attack > bestAtk)
+                        if (pSlot.Card.Attack > bestAtk || (pSlot.Card.Attack == bestAtk && ( pSlot.Card.Health > bestHealth || (pSlot.Card.PowerLevel > bestPowerLevel))))
                         {
                             best.Clear();
                             bestAtk = pSlot.Card.Attack;
+                            bestHealth = pSlot.Card.Health;
+                            bestPowerLevel = pSlot.Card.PowerLevel;
                             best.Add(pSlot.Card);
                         }
-                        else if (pSlot.Card.Attack == bestAtk)
+                        else if (pSlot.Card.Attack == bestAtk && pSlot.Card.Health == bestHealth && pSlot.Card.PowerLevel == bestPowerLevel)
                         {
                             best.Add(pSlot.Card);
                         }
@@ -113,7 +117,7 @@ namespace PirateBoss.Boss
             encounterData.opponentTurnPlan = EncounterBuilder.BuildOpponentTurnPlan(blueprint, 15 + RunState.Run.difficultyModifier, removeLockedCards: false);
             EncounterData.StartCondition startCondition = new EncounterData.StartCondition();
 
-            startCondition.cardsInOpponentSlots[1] = CardLoader.GetCardByName("Skeleton");
+            startCondition.cardsInOpponentSlots[1] = CardLoader.GetCardByName("PBM_Recurring_Skeleton");
             encounterData.startConditions.Add(startCondition);
             return encounterData;
         }

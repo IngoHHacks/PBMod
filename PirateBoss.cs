@@ -61,7 +61,7 @@ namespace PirateBoss
             AbilityInfo info = ScriptableObject.CreateInstance<AbilityInfo>();
             info.powerLevel = 1;
             info.rulebookName = "Cannon";
-            info.rulebookDescription = "Consumes cannonballs from your hand to attack for 1 damage.";
+            info.rulebookDescription = "Each turn, consumes a cannonball from your hand to gain 1 power for that turn.";
             info.metaCategories = new List<AbilityMetaCategory> { AbilityMetaCategory.Part1Rulebook };
 
             NewAbility cannon = new NewAbility(info, typeof(CannonAbility), tex2, AbilityIdentifier.GetAbilityIdentifier(PluginGuid, "CannonAbility"));
@@ -81,7 +81,7 @@ namespace PirateBoss
             AbilityInfo info2 = ScriptableObject.CreateInstance<AbilityInfo>();
             info2.powerLevel = 2;
             info2.rulebookName = "Ethereal";
-            info2.rulebookDescription = "When [creature] is attacked, the damage is reduced to 1.";
+            info2.rulebookDescription = "When [creature] is attacked, the damage to this creature is reduced to 1.";
             info2.metaCategories = new List<AbilityMetaCategory> { AbilityMetaCategory.Part1Rulebook };
 
             NewAbility ethereal = new NewAbility(info2, typeof(EtherealAbility), tex4, AbilityIdentifier.GetAbilityIdentifier(PluginGuid, "EtherealAbility"));
@@ -119,12 +119,18 @@ namespace PirateBoss
             AbilityInfo info3 = ScriptableObject.CreateInstance<AbilityInfo>();
             info3.powerLevel = 2;
             info3.rulebookName = "Attack Negation";
-            info3.rulebookDescription = "The strongest opponenent creature on the board does not attack.";
+            info3.rulebookDescription = "Your strongest creature on the board does not attack.";
             info3.metaCategories = new List<AbilityMetaCategory> { AbilityMetaCategory.Part1Rulebook };
 
             NewAbility negate = new NewAbility(info3, typeof(NullAbility), tex9, AbilityIdentifier.GetAbilityIdentifier(PluginGuid, "NegateAttackAbility"));
             negateId = negate.id;
             negateAbility = negate.ability;
+
+            byte[] imgBytes10 = File.ReadAllBytes(Path.Combine(Info.Location.Replace("PirateBoss.dll", ""), "Artwork/reassembling_skeleton.png"));
+            Texture2D tex10 = new Texture2D(2, 2);
+            tex10.LoadImage(imgBytes8);
+
+            NewCard.Add("PBM_Reassembling_Skeleton", "Recurring Skeleton", 1, 1, new List<CardMetaCategory>(), CardComplexity.Intermediate, CardTemple.Nature, defaultTex: tex10, abilities: new List<Ability>() { Ability.IceCube, Ability.Brittle }, iceCubeId: new IceCubeIdentifier("PBM_Destroyed_Skeleton"));
         }
 
         [HarmonyPatch(typeof(TurnManager), "StartGame", new Type[] {typeof(CardBattleNodeData)})]

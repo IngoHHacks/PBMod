@@ -14,7 +14,7 @@ namespace PirateBoss.Boss
             {
                 new CardBlueprint()
                 {
-                        card = CardLoader.GetCardByName("PBM_Recurring_Skeleton")
+                        card = CardLoader.GetCardByName("Revenant")
                 },
                 new CardBlueprint()
                 {
@@ -28,6 +28,10 @@ namespace PirateBoss.Boss
             // TURN 2
             turns.Add(new List<CardBlueprint>()
             {
+                new CardBlueprint()
+                {
+                        card = CardLoader.GetCardByName("PBM_Recurring_Skeleton")
+                },
                 new CardBlueprint()
                 {
                         card = CardLoader.GetCardByName("PBM_Ghost_Shark")

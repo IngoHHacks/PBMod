@@ -66,11 +66,7 @@ namespace PirateBoss.Boss
             {
                 new CardBlueprint()
                 {
-                        card = CardLoader.GetCardByName("Revenant")
-                },
-                new CardBlueprint()
-                {
-                        card = CardLoader.GetCardByName("Skeleton")
+                        card = CardLoader.GetCardByName("PBM_Ghost_Shark")
                 }
             });
             // TURN 7
