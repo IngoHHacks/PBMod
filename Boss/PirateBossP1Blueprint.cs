@@ -14,7 +14,7 @@ namespace PirateBoss.Boss
             {
                 new CardBlueprint()
                 {
-                        card = CardLoader.GetCardByName("PBM_Recurring_Skeleton")
+                        card = CardLoader.GetCardByName("Skeleton")
                 },
                 new CardBlueprint()
                 {

@@ -104,7 +104,7 @@ namespace PirateBoss
             Texture2D tex7 = new Texture2D(2, 2);
             tex7.LoadImage(imgBytes7);
 
-            NewCard.Add("PBM_Destroyed_Skeleton", "Recurring Skeleton", 0, 1, new List<CardMetaCategory>(), CardComplexity.Intermediate, CardTemple.Nature, defaultTex: tex7, abilities: new List<Ability>() { Ability.Evolve },  evolveId: new EvolveIdentifier("PBM_Recurring_Skeleton", 1));
+            NewCard.Add("PBM_Destroyed_Skeleton", "Recurring Skeleton", 0, 1, new List<CardMetaCategory>(), CardComplexity.Intermediate, CardTemple.Nature, defaultTex: tex7, abilities: new List<Ability>() { Ability.Evolve },  evolveId: new EvolveIdentifier("PBM_Reassembling_Skeleton", 1));
 
             byte[] imgBytes8 = File.ReadAllBytes(Path.Combine(Info.Location.Replace("PirateBoss.dll", ""), "Artwork/recurring_skeleton.png"));
             Texture2D tex8 = new Texture2D(2, 2);
@@ -128,7 +128,7 @@ namespace PirateBoss
 
             byte[] imgBytes10 = File.ReadAllBytes(Path.Combine(Info.Location.Replace("PirateBoss.dll", ""), "Artwork/reassembling_skeleton.png"));
             Texture2D tex10 = new Texture2D(2, 2);
-            tex10.LoadImage(imgBytes8);
+            tex10.LoadImage(imgBytes10);
 
             NewCard.Add("PBM_Reassembling_Skeleton", "Recurring Skeleton", 1, 1, new List<CardMetaCategory>(), CardComplexity.Intermediate, CardTemple.Nature, defaultTex: tex10, abilities: new List<Ability>() { Ability.IceCube, Ability.Brittle }, iceCubeId: new IceCubeIdentifier("PBM_Destroyed_Skeleton"));
         }

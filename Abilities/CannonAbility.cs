@@ -33,13 +33,13 @@ public class CannonAbility : AbilityBehaviour
 		else return false;
     }
 
-    public override IEnumerator OnPlayFromHand()
+    public override IEnumerator OnResolveOnBoard()
     {
 		yield return ConsumeBall();
 	}
 
-	public override bool RespondsToPlayFromHand()
-	{
+    public override bool RespondsToResolveOnBoard()
+    {
 		return true;
 	}
 
