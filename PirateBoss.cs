@@ -20,7 +20,7 @@ namespace PirateBoss
     {
         private const string PluginGuid = "IngoH.inscryption.PirateBoss";
         private const string PluginName = "PirateBoss";
-        private const string PluginVersion = "1.0.0";
+        private const string PluginVersion = "0.2.1";
 
         internal static ManualLogSource Log;
 
@@ -257,6 +257,10 @@ namespace PirateBoss
         {
             public static bool Prefix(ref PlayableCard __instance)
             {
+                if (__instance.Slot == null)
+                {
+                    __instance.Slot = new CardSlot();
+                }
                 if (Singleton<TurnManager>.Instance.Opponent != null && Singleton<TurnManager>.Instance.Opponent.Blueprint != null && Singleton<TurnManager>.Instance.Opponent.Blueprint.name != null && Singleton<TurnManager>.Instance.Opponent.Blueprint.name == "DeathPreventionBlueprint") return false;
                 else return true;
             }

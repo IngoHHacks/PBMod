@@ -6,10 +6,15 @@ The mod is tested with vanilla, but there shouldn't be any issues with using oth
 
 ### Credits ###
 #### Art
-- **Allie BONES**: Cannon, Cannonballs, Destroyed Skeleton, Reassembling Skeleton, Negate Attack Ability, Ethereal Ability.
+- **Allie BONES**: Cannon, Cannonballs, Destroyed Skeleton, Spectral Skeleton, Reassembling Skeleton, Negate Attack Ability, Ethereal Ability.
 - **turkle**: Ghost Shark
 
 ### Changelog ###
+
+#### 0.2.1
+- Small fix for empty slots
+- Added new Spectral Skeleton art
+
 #### 0.2.0
 - Attack negation ties are now broken by Health and Power Level.
 - Changed some ability descriptions.
