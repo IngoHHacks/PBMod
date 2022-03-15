@@ -9,8 +9,12 @@ The mod is tested with vanilla, but there shouldn't be any issues with using oth
 #### Art
 - **Allie BONES**: Cannon, Cannonballs, Destroyed Skeleton, Spectral Skeleton, Reassembling Skeleton, Negate Attack Ability, Ethereal Ability.
 - **turkle**: Ghost Shark
+- **water Psychiatrist**: Boss Music
 
 ### Changelog ###
+
+#### 0.2.2
+- Added custom music
 
 #### 0.2.1
 - Small fix for empty slots

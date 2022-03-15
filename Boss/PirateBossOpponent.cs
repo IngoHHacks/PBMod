@@ -28,7 +28,7 @@ namespace PirateBoss.Boss
             Singleton<ViewManager>.Instance.SwitchToView(View.Default, immediate: false, lockAfter: true);
             yield return Singleton<TextDisplayer>.Instance.ShowUntilInput("I know this is Grimora's theme, but...");
             LeshyAnimationController.Instance.PutOnMask((LeshyAnimationController.Mask)10);
-            AudioController.Instance.SetLoopAndPlay("boss_trappertrader_base");
+            AudioController.Instance.SetLoopAndPlay("boss_pirate");
             //AudioController.Instance.SetLoopAndPlay("boss_trappertrader_ambient", 1);
             AudioController.Instance.SetLoopVolume(0.25f, 4f, 1);
             AudioController.Instance.BaseLoopSource.pitch *= 2f;

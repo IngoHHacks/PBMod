@@ -5,7 +5,7 @@ namespace PirateBoss.Boss
 {
     public class PirateBossP2Blueprint : EncounterBlueprintData
     {
-        public PirateBossP2Blueprint()
+        public void OnEnable()
         {
             name = "PirateBossP2Blueprint";
             turns = new List<List<CardBlueprint>>();

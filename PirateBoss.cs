@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using APIPlugin;
+using UnityEngine.Networking;
 
 namespace PirateBoss
 {
@@ -20,7 +21,7 @@ namespace PirateBoss
     {
         private const string PluginGuid = "IngoH.inscryption.PirateBoss";
         private const string PluginName = "PirateBoss";
-        private const string PluginVersion = "0.2.1";
+        private const string PluginVersion = "0.2.2";
 
         internal static ManualLogSource Log;
 
@@ -32,7 +33,29 @@ namespace PirateBoss
             Harmony harmony = new Harmony(PluginGuid);
             harmony.PatchAll();
 
+            StartCoroutine(GetAudioClip());
+
             CreateCards();
+        }
+
+        private IEnumerator GetAudioClip()
+        {
+            UnityWebRequest wr = UnityWebRequestMultimedia.GetAudioClip("file://" + Path.Combine(Path.GetDirectoryName(typeof(Plugin).Assembly.Location), "Audio", "FinnFinchAndTheKingFishers.ogg"), AudioType.OGGVORBIS);
+
+            yield return wr.SendWebRequest();
+
+            if (wr.responseCode != 200)
+            {
+                Log.LogError("Failed to load music. Error code: " + wr.responseCode);
+                Log.LogError("Please ensure that the folder containing the Pirate Boss dll also has the Audio subfolder with the FinnFinchAndTheKingFishers.ogg audio file.");
+            } 
+            else
+            {
+                AudioClip clip = DownloadHandlerAudioClip.GetContent(wr);
+                clip.name = "boss_pirate";
+                AudioController.Instance.Loops.Add(clip);
+                Log.LogInfo("Loaded music!");
+            }
         }
 
         public static AbilityIdentifier cannonId;

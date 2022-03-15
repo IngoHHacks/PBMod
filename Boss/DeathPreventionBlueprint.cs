@@ -5,7 +5,7 @@ namespace PirateBoss.Boss
 {
     public class DeathPreventionBlueprint : EncounterBlueprintData
     {
-        public DeathPreventionBlueprint()
+        public void OnEnable()
         {
             name = "DeathPreventionBlueprint";
         }

@@ -1,6 +1,6 @@
 {
     "name": "Pirate_Boss_Mod",
-    "version_number": "0.2.1",
+    "version_number": "0.2.2",
     "website_url": "https://github.com/IngoHHacks/PBMod",
     "description": "[PRE-RELEASE] A BepInEx plugin that adds a pirate boss battle. Currently overrides the trapper/trader boss battle.",
     "dependencies": [
